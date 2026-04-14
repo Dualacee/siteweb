@@ -1,0 +1,9 @@
+# Évite un second clone du repo dans ce dossier (erreur « no commit checked out »).
+siteweb/
+
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+node_modules/

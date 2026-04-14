@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#EAE7DC">
+  <meta name="description" content="Théotime Laffont — sites Webflow sur mesure, identité graphique et développement front-end pour des marques ambitieuses.">
+  <title>Théotime Laffont — Design &amp; Webflow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <div id="top" class="page-start" tabindex="-1" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="header__shell">
+      <a class="header__brand" href="#top" aria-label="Théotime Laffont, accueil">
+        <img class="header__logo" src="img/Logo-carre-vert.svg" alt="" width="44" height="44" decoding="async">
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+        </button>
+        <div class="nav__backdrop" id="nav-backdrop" aria-hidden="true"></div>
+        <ul class="nav__list" id="nav-menu">
+          <li><a class="nav__link" href="#expertise">Expertise</a></li>
+          <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#realisations">Réalisations</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--primary header__cta" href="#contact">Réserver un appel</a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy hero-choreo">
+          <p class="hero__eyebrow">Freelance design &amp; intégration</p>
+          <h1 class="hero__title" id="hero-title">Théotime Laffont</h1>
+          <p class="hero__lead">Je conçois des sites Webflow sur mesure, des identités graphiques cohérentes et des interfaces front-end propres pour des projets crédibles et ambitieux.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">Démarrer un projet</a>
+            <a class="btn btn--ghost" href="#realisations">Voir les réalisations</a>
+          </div>
+          <p class="hero__note">Sites livrés clés en main, contenu éditable, base technique soignée.</p>
+        </div>
+        <div class="hero__visual reveal" data-reveal aria-hidden="true">
+          <div class="hero__bezel">
+            <div class="hero__frame">
+              <img class="hero__frame-img" src="img/img-hero.png" alt="" width="960" height="1200" decoding="async" fetchpriority="high">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="expertise" aria-labelledby="expertise-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal" id="expertise-title" data-reveal>Ce que je fais</h2>
+          <p class="section__intro reveal reveal--text" data-reveal style="--i:1">Trois leviers pour un site qui soutient votre crédibilité sans vous enfermer dans une solution générique.</p>
+        </header>
+        <ul class="pillars">
+          <li class="pillar card reveal" data-reveal style="--i:0">
+            <h3 class="pillar__title">Webflow complet</h3>
+            <p class="pillar__text">Un site complet, propre, rapide à éditer par vos équipes.</p>
+          </li>
+          <li class="pillar card reveal" data-reveal style="--i:1">
+            <h3 class="pillar__title">Identité graphique</h3>
+            <p class="pillar__text">Une image cohérente qui rend la marque plus lisible et mémorable.</p>
+          </li>
+          <li class="pillar card reveal" data-reveal style="--i:2">
+            <h3 class="pillar__title">Front-end sur mesure</h3>
+            <p class="pillar__text">Des interfaces sur mesure quand le standard ne suffit pas.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal" id="services-title" data-reveal>Services</h2>
+          <p class="section__intro reveal reveal--text" data-reveal style="--i:1">Des offres claires, avec un livrable défini et un accompagnement jusqu’à la mise en ligne.</p>
+        </header>
+        <div class="grid-services">
+          <article class="service card card--lift reveal" data-reveal style="--i:0">
+            <h3 class="service__title">Site Webflow complet</h3>
+            <p class="service__text">Architecture des pages, design system léger, intégration Webflow et formation à la prise en main.</p>
+            <ul class="service__list">
+              <li>Structure pensée pour la conversion</li>
+              <li>Composants réutilisables et documentés</li>
+              <li>Performance et SEO de base inclus</li>
+            </ul>
+            <a class="btn btn--text" href="#contact">Parler de votre site</a>
+          </article>
+          <article class="service card card--lift reveal" data-reveal style="--i:1">
+            <h3 class="service__title">Identité graphique</h3>
+            <p class="service__text">Direction visuelle pour le web : couleurs, typographies, motifs discrets et règles d’usage.</p>
+            <ul class="service__list">
+              <li>Charte courte, applicable tout de suite</li>
+              <li>Déclinaisons pour réseaux et print léger</li>
+              <li>Cohérence avec votre positionnement</li>
+            </ul>
+            <a class="btn btn--text" href="#contact">Présenter votre marque</a>
+          </article>
+          <article class="service card card--lift reveal" data-reveal style="--i:2">
+            <h3 class="service__title">Développement front spécifique</h3>
+            <p class="service__text">Modules et interactions précises lorsque le no-code atteint ses limites, sans casser la chaîne de publication.</p>
+            <ul class="service__list">
+              <li>Composants et animations ciblées</li>
+              <li>Intégration propre avec Webflow</li>
+              <li>Code commenté et transférable</li>
+            </ul>
+            <a class="btn btn--text" href="#contact">Décrire le besoin technique</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="realisations" aria-labelledby="realisations-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal" id="realisations-title" data-reveal>Réalisations</h2>
+          <p class="section__intro reveal reveal--text" data-reveal style="--i:1">Peu de projets, choisis : chaque livraison vise un site stable, soigné et facile à faire vivre.</p>
+        </header>
+        <div class="grid-projects">
+          <article class="project reveal" data-reveal style="--i:0">
+            <a class="project__media" href="#" aria-label="Voir le projet Maison Verdier (démo)">
+              <img
+                src="https://picsum.photos/seed/verdier/960/640"
+                srcset="https://picsum.photos/seed/verdier/640/427 640w, https://picsum.photos/seed/verdier/960/640 960w, https://picsum.photos/seed/verdier/1280/853 1280w"
+                sizes="(max-width: 880px) 100vw, 52vw"
+                alt=""
+                width="960"
+                height="640"
+                fetchpriority="high"
+                decoding="async">
+            </a>
+            <div class="project__body">
+              <span class="project__type">Webflow &amp; identité</span>
+              <h3 class="project__name">Maison Verdier</h3>
+              <p class="project__desc">Site vitrine pour une marque artisanale : hiérarchie claire, mise en avant des matières, prise de rendez-vous simplifiée.</p>
+              <p class="project__result">Temps de mise à jour divisé pour l’équipe, taux de contact en hausse sur la page offres.</p>
+              <a class="btn btn--outline" href="#">Voir le projet</a>
+            </div>
+          </article>
+          <article class="project project--reverse reveal" data-reveal style="--i:1">
+            <a class="project__media" href="#" aria-label="Voir le projet Atelier Rivage (démo)">
+              <img
+                src="https://picsum.photos/seed/rivage/960/640"
+                srcset="https://picsum.photos/seed/rivage/640/427 640w, https://picsum.photos/seed/rivage/960/640 960w, https://picsum.photos/seed/rivage/1280/853 1280w"
+                sizes="(max-width: 880px) 100vw, 52vw"
+                alt=""
+                width="960"
+                height="640"
+                loading="lazy"
+                decoding="async">
+            </a>
+            <div class="project__body">
+              <span class="project__type">Refonte &amp; front sur mesure</span>
+              <h3 class="project__name">Atelier Rivage</h3>
+              <p class="project__desc">Refonte d’un site institutionnel : gabarits sobres, modules sur mesure pour les dossiers de presse.</p>
+              <p class="project__result">Image plus actuelle, navigation réduite à l’essentiel, maintenance centralisée dans Webflow.</p>
+              <a class="btn btn--outline" href="#">Voir le projet</a>
+            </div>
+          </article>
+          <article class="project reveal" data-reveal style="--i:2">
+            <a class="project__media" href="#" aria-label="Voir le projet Studio Calame (démo)">
+              <img
+                src="https://picsum.photos/seed/calame/960/640"
+                srcset="https://picsum.photos/seed/calame/640/427 640w, https://picsum.photos/seed/calame/960/640 960w, https://picsum.photos/seed/calame/1280/853 1280w"
+                sizes="(max-width: 880px) 100vw, 52vw"
+                alt=""
+                width="960"
+                height="640"
+                loading="lazy"
+                decoding="async">
+            </a>
+            <div class="project__body">
+              <span class="project__type">Landing &amp; motion léger</span>
+              <h3 class="project__name">Studio Calame</h3>
+              <p class="project__desc">Landing pour une offre B2B : preuves visuelles fortes, formulaire court, animations discrètes.</p>
+              <p class="project__result">Parcours raccourci jusqu’au formulaire, message métier compris en quelques secondes.</p>
+              <a class="btn btn--outline" href="#">Voir le projet</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="methode" aria-labelledby="methode-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal" id="methode-title" data-reveal>Ma façon de travailler</h2>
+          <p class="section__intro reveal reveal--text" data-reveal style="--i:1">Un déroulé simple, pour éviter les surprises et garder le cap sur l’objectif métier.</p>
+        </header>
+        <ol class="timeline">
+          <li class="timeline__step reveal" data-reveal style="--i:0">
+            <span class="timeline__index">01</span>
+            <h3 class="timeline__title">Brief</h3>
+            <p class="timeline__text">Objectifs, publics, contenus existants et contraintes techniques : on pose le cadre avant de dessiner.</p>
+          </li>
+          <li class="timeline__step reveal" data-reveal style="--i:1">
+            <span class="timeline__index">02</span>
+            <h3 class="timeline__title">Direction artistique</h3>
+            <p class="timeline__text">Proposition visuelle et structure des pages validées ensemble, avec des choix justifiés, pas décoratifs.</p>
+          </li>
+          <li class="timeline__step reveal" data-reveal style="--i:2">
+            <span class="timeline__index">03</span>
+            <h3 class="timeline__title">Production</h3>
+            <p class="timeline__text">Intégration Webflow, ajustements responsive, relecture des textes et préparation des médias.</p>
+          </li>
+          <li class="timeline__step reveal" data-reveal style="--i:3">
+            <span class="timeline__index">04</span>
+            <h3 class="timeline__title">Livraison</h3>
+            <p class="timeline__text">Mise en ligne, contrôles finaux, petite formation et fichier de bonnes pratiques pour votre équipe.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="a-propos" aria-labelledby="apropos-title">
+      <div class="container container--narrow">
+        <header class="section__head">
+          <h2 class="section__title reveal" id="apropos-title" data-reveal>À propos</h2>
+        </header>
+        <div class="prose reveal reveal--text" data-reveal>
+          <p>Je m’appelle Théotime, je travaille avec des indépendants, petites structures et marques qui veulent un site à la hauteur de ce qu’elles font déjà hors ligne.</p>
+          <p>Ce que j’aime, c’est assembler le design et le front : une maquette ne suffit pas si la mise en ligne est bancale, et un site technique sans direction claire manque de présence. Webflow m’aide à livrer vite tout en gardant la main sur le détail.</p>
+          <p>Je fais ce métier pour des clients qui assument leurs choix : hiérarchie stricte, textes affinés, interactions mesurées. Mon rôle, c’est de rendre ça lisible sur écran et tenable pour vous au quotidien.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact__layout">
+          <div class="contact__intro">
+            <h2 class="section__title reveal" id="contact-title" data-reveal>Contact</h2>
+            <p class="contact__lead reveal reveal--text" data-reveal style="--i:1">Décrivez votre contexte en deux phrases : je réponds sous quelques jours avec des pistes concrètes, pas un devis générique.</p>
+            <p class="contact__email">
+              <a href="mailto:bonjour@theotimelaffont.fr">bonjour@theotimelaffont.fr</a>
+              <button type="button" class="btn-copy-email" id="copy-email" aria-label="Copier l’adresse e-mail">Copier</button>
+            </p>
+            <a class="btn btn--secondary" href="https://cal.com" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le calendrier de prise de rendez-vous dans un nouvel onglet">Ouvrir le calendrier</a>
+          </div>
+          <form class="form card reveal" data-reveal id="contact-form" novalidate>
+            <div class="form__row">
+              <label class="form__label" for="name">Nom</label>
+              <input class="form__input" type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+              <span class="form__error" id="name-error" role="alert"></span>
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="email">E-mail</label>
+              <input class="form__input" type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+              <span class="form__error" id="email-error" role="alert"></span>
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="message">Message</label>
+              <textarea class="form__input form__textarea" id="message" name="message" rows="4" required aria-describedby="message-error"></textarea>
+              <span class="form__error" id="message-error" role="alert"></span>
+            </div>
+            <button class="btn btn--primary form__submit" type="submit">Envoyer</button>
+            <p class="form__feedback" id="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <span class="footer__name">Théotime Laffont</span>
+        <a class="footer__mail" href="mailto:bonjour@theotimelaffont.fr">bonjour@theotimelaffont.fr</a>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation pied de page">
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (nouvel onglet)">LinkedIn</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)">Instagram</a>
+        <a href="#methode">Méthode</a>
+        <a href="#a-propos">À propos</a>
+        <a href="index2.html">Version spectacle</a>
+      </nav>
+      <p class="footer__copy">&copy; <span id="year"></span> Théotime Laffont. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
