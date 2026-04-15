@@ -1,6 +1,17 @@
 /* Théotime Laffont — accueil */
 /* Animations : transform + opacity uniquement. Grain fixe, pas de néon. */
 
+html {
+  /* Même hauteur que le header sticky (.ii2-head-h) pour que les ancres ne passent pas sous la barre */
+  scroll-padding-top: calc(3.75rem + env(safe-area-inset-top, 0px));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 .ii2 {
   --ii2-bg: #EAE7DC;
   --ii2-surface: #D3CFC3;
