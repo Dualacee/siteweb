@@ -1168,6 +1168,25 @@ html {
   transform: translateX(4px);
 }
 
+.ii2-card--project {
+  position: relative;
+  cursor: default;
+}
+
+.ii2-card__project-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ii2-card__project-hit:focus-visible {
+  outline: 2px solid var(--ii2-ink);
+  outline-offset: 3px;
+}
+
 /* Process — grille sobre, cartes alignées (proche du bento) */
 .ii2-flow {
   position: relative;

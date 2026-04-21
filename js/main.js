@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   "use strict";
 
   var yearEl = document.getElementById("ii2-year");
