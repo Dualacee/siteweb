@@ -1082,12 +1082,15 @@ html {
   padding-bottom: 0.5rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  cursor: grab;
 }
 
-@media (max-width: 767px) {
-  .ii2-strip__rail {
-    touch-action: pan-x;
-  }
+.ii2-strip__rail.ii2-strip__rail--grabbing {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
 }
 
 .ii2-strip__rail::-webkit-scrollbar {
@@ -1128,9 +1131,87 @@ html {
   object-fit: cover;
   display: block;
   transition: transform 600ms var(--ii2-ease);
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
-.ii2-card:hover img {
+/* Homepage — cartes marque : image de fond + logo (Ateau, Mexiiico, Aldes) ou fond uni + logo (Spontanez-vous) */
+.ii2-strip__rail .ii2-card__visual--brand-ateau,
+.ii2-strip__rail .ii2-card__visual--brand-mexiiico,
+.ii2-strip__rail .ii2-card__visual--brand-spontanez,
+.ii2-strip__rail .ii2-card__visual--brand-aldes {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ii2-strip__rail .ii2-card__visual--brand-spontanez {
+  background-color: #001732;
+}
+
+.ii2-card__visual--brand-ateau__bg,
+.ii2-card__visual--brand-mexiiico__bg,
+.ii2-card__visual--brand-aldes__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0;
+  aspect-ratio: auto;
+  transition: transform 600ms var(--ii2-ease);
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Logo : surcharge .ii2-card img (width:100% + aspect-ratio 16/10) qui déformait et coupait le SVG */
+.ii2-strip__rail .ii2-card--project .ii2-card__visual--brand-ateau__logo,
+.ii2-strip__rail .ii2-card--project .ii2-card__visual--brand-mexiiico__logo,
+.ii2-strip__rail .ii2-card--project .ii2-card__visual--brand-spontanez__logo,
+.ii2-strip__rail .ii2-card--project .ii2-card__visual--brand-aldes__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  box-sizing: content-box;
+  display: block;
+  margin: 0;
+  width: auto;
+  height: auto;
+  max-width: min(200px, calc(100% - 1.5rem));
+  max-height: min(5.5rem, calc(100% - 1.5rem));
+  object-fit: contain;
+  object-position: center;
+  aspect-ratio: auto;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition: transform 600ms var(--ii2-ease);
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.ii2-card:hover .ii2-card__visual--brand-ateau__bg,
+.ii2-card:hover .ii2-card__visual--brand-mexiiico__bg,
+.ii2-card:hover .ii2-card__visual--brand-aldes__bg {
+  transform: scale(1.06);
+}
+
+.ii2-card:hover .ii2-card__visual--brand-ateau__logo,
+.ii2-card:hover .ii2-card__visual--brand-mexiiico__logo,
+.ii2-card:hover .ii2-card__visual--brand-spontanez__logo,
+.ii2-card:hover .ii2-card__visual--brand-aldes__logo {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+/* Effet hover seulement sur l’image « principale » (pas le logo Ateau ni les doubles <img> sur la même carte) */
+.ii2-card:hover > img {
   transform: scale(1.06);
 }
 
@@ -1168,9 +1249,30 @@ html {
   transform: translateX(4px);
 }
 
-.ii2-card--project {
+.ii2-strip__rail .ii2-card--project {
   position: relative;
-  cursor: default;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  box-sizing: border-box;
+  cursor: grab;
+}
+
+.ii2-strip__rail .ii2-card--project > .ii2-card__body {
+  flex: 0 0 auto;
+}
+
+/* Zone visuelle = tout l’espace restant (au-dessus du bloc texte) */
+.ii2-strip__rail .ii2-card--project > img {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.ii2-strip__rail--grabbing .ii2-card--project {
+  cursor: grabbing;
 }
 
 .ii2-card__project-hit {
@@ -1179,7 +1281,11 @@ html {
   z-index: 1;
   border-radius: 14px;
   text-decoration: none;
-  cursor: pointer;
+  cursor: grab;
+}
+
+.ii2-strip__rail--grabbing .ii2-card__project-hit {
+  cursor: grabbing;
 }
 
 .ii2-card__project-hit:focus-visible {

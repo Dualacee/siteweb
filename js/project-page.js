@@ -1,11 +1,12 @@
 (function () {
   "use strict";
 
-  var SLUG_ORDER = ["maison-verdier", "atelier-rivage", "studio-calame"];
+  var SLUG_ORDER = ["ateau", "mexiiico", "spontanez-vous", "aldes"];
   var FILE_BY_SLUG = {
-    "maison-verdier": "maison-verdier.html",
-    "atelier-rivage": "atelier-rivage.html",
-    "studio-calame": "studio-calame.html",
+    ateau: "ateau.html",
+    mexiiico: "mexiiico.html",
+    "spontanez-vous": "spontanez-vous.html",
+    aldes: "aldes.html",
   };
 
   function appendListSection(container, title, items) {
@@ -258,15 +259,11 @@
     var split = document.createElement("section");
     split.className = "ii2-real-split";
     var splitInner = document.createElement("div");
-    splitInner.className = "ii2-wrap ii2-real-split__grid";
+    splitInner.className = "ii2-wrap ii2-real-split__grid ii2-real-split__grid--single";
     var colA = document.createElement("div");
     colA.className = "ii2-real-split__col";
     appendListSection(colA, "Livrables", data.livrables);
-    var colB = document.createElement("div");
-    colB.className = "ii2-real-split__col";
-    appendListSection(colB, "Ajustements et itérations", data.ajustements);
     splitInner.appendChild(colA);
-    splitInner.appendChild(colB);
     split.appendChild(splitInner);
     mount.appendChild(split);
   }

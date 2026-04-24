@@ -137,4 +137,143 @@
       }
     });
   }
+
+  /* Réalisations : glisser-déposer horizontal à la souris (le tactile garde le scroll natif) */
+  var stripRail = document.querySelector(".ii2-strip__rail");
+  if (stripRail) {
+    var dragLastX = 0;
+    var dragActive = false;
+    var dragPointerId = null;
+    var dragSuppressedClick = false;
+    var dragTotalMove = 0;
+    var stripCardLink = null;
+    var stripBlockLinkClick = false;
+    var DRAG_THRESHOLD = 8;
+
+    function stripFindCardLinkFromTarget(t) {
+      if (!t || !t.closest) return null;
+      var card = t.closest(".ii2-card--project");
+      if (!card) return null;
+      return card.querySelector("a.ii2-card__project-hit");
+    }
+
+    function stripDragEnd() {
+      if (!dragActive) return;
+      dragActive = false;
+      dragPointerId = null;
+      stripRail.classList.remove("ii2-strip__rail--grabbing");
+    }
+
+    /* Capture : avant le <a> plein écran, pour que le rail garde le pointeur dès l’enfoncement (y compris sur la card) */
+    stripRail.addEventListener(
+      "pointerdown",
+      function (e) {
+        if (e.button !== 0) return;
+        if (e.pointerType === "touch") return;
+        dragActive = true;
+        dragSuppressedClick = false;
+        dragTotalMove = 0;
+        dragLastX = e.clientX;
+        dragPointerId = e.pointerId;
+        stripCardLink = stripFindCardLinkFromTarget(e.target);
+        try {
+          stripRail.setPointerCapture(e.pointerId);
+        } catch (err) {}
+        stripRail.classList.add("ii2-strip__rail--grabbing");
+      },
+      { capture: true, passive: true }
+    );
+
+    stripRail.addEventListener(
+      "pointermove",
+      function (e) {
+        if (!dragActive) return;
+        var dx = e.clientX - dragLastX;
+        dragLastX = e.clientX;
+        stripRail.scrollLeft -= dx;
+        dragTotalMove += Math.abs(dx);
+        if (dragTotalMove > DRAG_THRESHOLD) {
+          dragSuppressedClick = true;
+        }
+      },
+      { passive: true }
+    );
+
+    stripRail.addEventListener(
+      "dragstart",
+      function (e) {
+        e.preventDefault();
+      },
+      { capture: true }
+    );
+
+    function stripReleasePointer(e) {
+      if (dragPointerId !== null && e.pointerId === dragPointerId) {
+        try {
+          stripRail.releasePointerCapture(dragPointerId);
+        } catch (err) {}
+      }
+    }
+
+    function stripPointerUp(e) {
+      stripReleasePointer(e);
+      if (
+        e.button === 0 &&
+        stripCardLink &&
+        !dragSuppressedClick &&
+        stripCardLink.getAttribute("href")
+      ) {
+        var href = stripCardLink.getAttribute("href");
+        if (e.metaKey || e.ctrlKey) {
+          window.open(href, "_blank", "noopener,noreferrer");
+          stripBlockLinkClick = true;
+        } else {
+          window.location.assign(href);
+        }
+      }
+      stripCardLink = null;
+      stripDragEnd();
+    }
+
+    function stripPointerCancel(e) {
+      stripReleasePointer(e);
+      stripCardLink = null;
+      stripDragEnd();
+    }
+
+    stripRail.addEventListener("pointerup", stripPointerUp, { passive: true });
+    stripRail.addEventListener("pointercancel", stripPointerCancel, { passive: true });
+
+    stripRail.addEventListener(
+      "click",
+      function (e) {
+        if (dragSuppressedClick) {
+          e.preventDefault();
+          e.stopPropagation();
+          dragSuppressedClick = false;
+          return;
+        }
+        if (stripBlockLinkClick) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          stripBlockLinkClick = false;
+        }
+      },
+      true
+    );
+
+    stripRail.addEventListener(
+      "wheel",
+      function (e) {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          e.preventDefault();
+          stripRail.scrollLeft += e.deltaX;
+        } else if (e.shiftKey) {
+          e.preventDefault();
+          stripRail.scrollLeft += e.deltaY;
+        }
+      },
+      { passive: false }
+    );
+  }
 })();
